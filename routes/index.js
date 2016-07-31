@@ -59,6 +59,10 @@ router.get('/logs', dropboxSession, (req, res) => {
 });
 
 router.get('/logs/:path', dropboxSession, (req, res) => {
+  if (!req.params.path.endsWith('.gpx')) {
+    return res.status(404).status('not found');
+  }
+
   gpx.get(req.dropboxToken, req.params.path)
   .then((f) => res.send(f))
   .catch(e => {
