@@ -12,10 +12,10 @@ router.post('/maker', function(req, res, next) {
   console.log('/maker', req.body);
   dbx.filesListFolder({path: '/Apps/GPS Logger for Android'})
   .then(response => {
-    res.reply(response);
+    res.send(response);
   })
   .catch(e => {
-    res.reply(e);
+    res.send(e);
   })
 });
 
