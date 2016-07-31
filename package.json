@@ -16,6 +16,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.13.4",
+    "express-force-ssl": "^0.3.2",
     "gpx-parse": "^0.10.4",
     "jade": "~1.11.0",
     "lodash": "^4.14.1",
