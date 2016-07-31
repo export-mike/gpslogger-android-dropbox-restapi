@@ -41,7 +41,7 @@ router.get('/auth/dropbox', (req, res) => {
         if (err) {
           return res.status(500).send('Error Authenticating');
         }
-
+        debug('account', account);
         res
         .cookie('dropbox', camelCase(account), {signed: true})
         .redirect('/logs');
