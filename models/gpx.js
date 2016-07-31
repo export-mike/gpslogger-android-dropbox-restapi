@@ -14,7 +14,6 @@ const getAll = (token, path = '/apps/gpslogger for android') =>
     dropbox.api(token)
       .getMetadata(path, (err, data) => {
       if (err) return reject(`Error reading path: ${path}`);
-      debug('getall data', data)
       resolve(data.body.contents);
     })
   );
