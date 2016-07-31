@@ -55,7 +55,7 @@ router.get('/auth/dropbox', (req, res) => {
 
 router.get('/logs', dropboxSession, (req, res) => {
   gpx.getAll(req.dropboxToken)
-  .then((r) => res.send(r))
+  .then((r) => res.render('logs', {logs: r}))
   .catch(e => {
     debug(e);
     res.status(500).send('Error gettings sessions');

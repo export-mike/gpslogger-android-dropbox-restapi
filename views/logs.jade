@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Logs
+  p here are your logs from gpslogger Android
+  ul
+    each log in logs
+      li
+        a(href='/logs/'+encodeURIComponent(log.path)) #{log.path}
