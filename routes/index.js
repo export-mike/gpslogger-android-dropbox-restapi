@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+var Dropbox = require('dropbox');
+var dbx = new Dropbox({ accessToken: process.env.DROPBOX_ACCESS_TOKEN });
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -9,7 +10,13 @@ router.get('/', function(req, res, next) {
 /* POST maker. */
 router.post('/maker', function(req, res, next) {
   console.log('/maker', req.body);
-  res.render('index', { title: 'Maker' });
+  dbx.filesListFolder({path: '/Apps/GPS Logger for Android'})
+  .then(response => {
+    res.reply(response);
+  })
+  .catch(e => {
+    res.reply(e);
+  })
 });
 
 module.exports = router;
